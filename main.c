@@ -75,13 +75,13 @@ static void update()
 		static float roll;
 		roll += (.01 * mouse.delta.x);
 
-		const float angle = spin ? _time.el.game: roll;
+		const float angle = spin ? _time.el.game : roll;
 		const ff dir = (ff) { sinf((.5 * angle)), cosf((.5 * angle)) };
 		v3 dir3 = v3_padxz(dir, 0.f);
-		cam.pos = v3_mul(dir3, (-4));
+		cam.pos = v3_mul(dir3, -4);
 
 		static float height = 1.f;
-		height = clampf((height + (.01 * mouse.delta.y)), (-4), 4);
+		height = clampf((height + (.01 * mouse.delta.y)), -4, 4);
 		cam.pos.y = height;
 
 		dir3 = v3_norm(v3_neg(cam.pos));

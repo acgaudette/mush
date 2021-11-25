@@ -44,14 +44,14 @@ static void update()
 			(bill) {
 				.anc = $ 0 0 ,
 				.ext = $ 2 1 ,
-				.rot = QT_ID,
+				.rot = $ id  ,
 			}
 		);
 		break;
 	case STATE_CUBE:
 		mesh_cuboid(
 			(cuboid) {
-				.ext = V3_ONE,
+				.ext = $ one'3 ,
 				.anc = $ 0 0 0 ,
 			}
 		);
@@ -78,10 +78,10 @@ static void update()
 		const float angle = spin ? $ t : roll'
 		const ff dir = $ sin * .5 angle cos * .5 angle
 		v3 dir3 = v3_padxz(dir, 0.f);
-		cam.pos = $ * dir3'3 ~ 4
+		cam.pos = $ * dir3'3 -4
 
 		static float height = 1.f;
-		height = $ clamp + height' * .01 mouse.delta.y ~ 4 4
+		height = $ clamp + height' * .01 mouse.delta.y -4 4
 		cam.pos.y = height;
 
 		dir3 = $ norm ~ cam.pos'3
